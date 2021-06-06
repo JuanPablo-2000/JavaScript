@@ -1,5 +1,5 @@
 // Los datos primitivos no se permiten ser cambiados en JavaScript
-// en cambio los valores compuestos nos permiten cambiar, ya que.
+// en cambio los valores compuestos si cambian, ya que.
 // Al agregar más datos al valor constate este no pierde su naturaleza
 // es decir, al agregar más valores a un objeto este no deja de ser un 
 // objeto.
