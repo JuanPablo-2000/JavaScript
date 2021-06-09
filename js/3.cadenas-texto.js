@@ -1,4 +1,5 @@
 // Cadenas de texto String
+//
 let nombre = "Juan Pablo";
 let apellido = "Mera Agudelo";
 let saludo = new String("Hola Mundo");
