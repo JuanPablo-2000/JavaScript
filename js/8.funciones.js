@@ -32,4 +32,22 @@ function funcionDeclarada() {
 
 funcionDeclarada();
 
+//Función anónima
 
+//Las funciónes expresadas no pueden ser llamadas
+//antes de su declaración.
+const funcionExpresada = function() {
+	console.log(`
+	Esto es una función declarada puede invocarse 
+	en cualquier parte de nuestro código, incluso
+	antes de que la función sea declarada
+	`)
+}
+
+funcionExpresada();
+
+// Ordenamiento de código
+// 1. IMPORTACIÓN DE MÓDULOS
+// 2. DECLARACIÓN DE VARIABLES
+// 3. DECLARACIÓN DE FUNCIONES
+// 4. EJECUCIÓN DE CÓDIGO
