@@ -42,11 +42,35 @@ function Animal(nombre, genero) {
 	}
 }
 
-const snoopy = new Animal("Snoopy", "Macho"),
+//Herencia prototipica 
+function Perro(nombre, genero, tamanio) {
+	this.super = Animal;
+	this.super(nombre, genero);
+	this.tamanio = tamanio;
+}
+
+//Perro está heredando de Animal 
+Perro.prototype = new Animal();
+Perro.prototype.constructor = Perro;
+
+//Sobreescritura de métodos del Prototipo padre en el hijo.
+Perro.prototype.sonar = function () {
+	console.log("Soy un perro y mi sonido es un ladrido");
+}
+
+Perro.prototype.ladrar = function () {
+	console.log("Guauuu Guauuu!!!");
+}
+
+const snoopy = new Perro("Snoopy", "Macho"),
 	lolaBunny = new Animal("Lola Bunny", "Hembra");
 
 console.log(snoopy);
 console.log(lolaBunny);
+
+snoopy.sonar();
+snoopy.saludar();
+snoopy.ladrar();
 
 snoopy.sonar();
 snoopy.saludar();
