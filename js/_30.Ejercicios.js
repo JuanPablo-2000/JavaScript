@@ -15,7 +15,7 @@
 contar = (cadena) => console.log(cadena.length); 
 contar('Hola Mundo');
 
-recortar = (cadena, recorte) =>  console.log(cadena.substring(0, recorte));
+recortar = (cadena, recorte) => console.log(cadena.substring(0, recorte));
 recortar('Hola Mundo', 4);
 
 separar = (cadena) => console.log(cadena.split(''));
@@ -38,13 +38,24 @@ repetir('Hola Mundo', 3);
   miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
 */
 
-reversa = (cadena) => {let texto = ''; for(let i=cadena.length-1;i>=0;i--) {texto += cadena[i];} return texto};
+reversa = (cadena) => {
+  let texto = ''; 
+  for(let i=cadena.length-1;i>=0;i--) {
+    texto += cadena[i];
+  } 
+  return texto
+};
 console.log(reversa('Hola Mundo'));
 
 palindromo = (cadena) => {return cadena.toLowerCase() === reversa(cadena.toLowerCase()) ? true : false}
 console.log(palindromo('Oso'));
 
-deletepatron = (patron, ...cadena) => {for(let i=0;i<cadena.length;i++) {cadena[i] = cadena[i].replace(patron, '');} return cadena};
+deletepatron = (patron, ...cadena) => {
+  for(let i=0;i<cadena.length;i++) {
+    cadena[i] = cadena[i].replace(patron, '');
+  } 
+  return cadena
+};
 console.log(deletepatron('xyz', 'xyz1', 'xyz2', 'xyz3'));
 
 /*
@@ -104,11 +115,11 @@ console.log('Temperatura: '+temperatura(0, 'C'))
   15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. 
       miFuncion(100,2) devolverá 4 base 10.
 
-  16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. 
-      miFuncion(1000, 20) devolverá 800.
+  16) Programa una función que devuelva el monto final después de aplicar un descuento a 
+      una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
 
-  17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. 
-      miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+  17) Programa una función que dada una fecha válida determine cuantos años han pasado 
+      hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
 */
 
 auxDecimal = (n) => {
@@ -160,7 +171,10 @@ console.log(fechaValida(new Date(1984,4,23)));
 
 contadorConsonantes = (texto) => {return texto.match(/[qwrtypsdfghjklñzxcvbnm]/gi).length};
 contadorVocales = (texto) => {return texto.match(/[aeiou]/gi).length};
-constarLetras = (texto) => {return 'Cantidad de vocales: '+contadorVocales(texto)+' Cantidad de consonantes: '+contadorConsonantes(texto)};
+constarLetras = (texto) => {
+return 'Cantidad de vocales: '+contadorVocales(texto)+
+  ' Cantidad de consonantes: '+contadorConsonantes(texto)
+};
 console.log(constarLetras('Hola Mundo'));
 
 isNombre = (nombre) => {};
@@ -169,17 +183,23 @@ isEmail = (correo) => {return /\S+@\S+\.\S+/.test(correo)};
 console.log('Es correo? : '+isEmail('juan@gmail.com'));
 
 /*
-  21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. 
-        mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+  21) Programa una función que dado un array numérico devuelve otro array con los números 
+      elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
 
-  22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. 
-      miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+  22) Programa una función que dado un array devuelva el número mas alto y el más bajo de 
+      dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
 
-  23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. 
+  23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos 
+      en el primero almacena los números pares y en el segundo los impares, pe. 
       miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
 */
 
-elevarCuadrado = (arreglo) => {for(let i=0;i<arreglo.length;i++) {arreglo[i]= arreglo[i]*2} return arreglo};
+elevarCuadrado = (arreglo) => {
+  for(let i=0;i<arreglo.length;i++) {
+    arreglo[i]= arreglo[i]*2
+  } 
+  return arreglo;
+};
 console.log('Al cuadrado: '+elevarCuadrado([1, 4, 5]));
 
 smallAndbig = (arreglo) => {
@@ -290,3 +310,129 @@ IMDB, titulo, director, año de estreno, país o países de origen, géneros y c
   Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 */
 
+class Pelicula {
+
+  constructor({id, titulo, director, estreno, countries, genero, calificacion}) {
+    this.id = id;
+    this.titulo = titulo;
+    this.director = director;
+    this.estreno = estreno;
+    this.countries = countries;
+    this.genero = genero;
+    this.calificacion = calificacion;
+
+    this.validarIMBD(id);
+    this.validarTitulo(titulo);
+    this.validarDirector(director);
+    this.validarEstreno(estreno);
+    this.validarPais(countries);
+    this.validarGeneros(genero);
+    this.validarCalificacion(calificacion);
+  }
+
+  static get listaGeneros() {
+    return ["Action","Adult", "Adventure", "Animation", "Biography","Comedy", 
+    "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", 
+    "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", 
+    "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+  }
+
+  static generosAceptados() {
+    return console.info(`Los géneros aceptados son: ${Pelicula.listaGeneros.join(',')}`);
+  }
+
+  validarCadena(propiedad, valor) {
+    if(!valor) return console.warn(`${propiedad} "${valor}" esta vacío`);
+
+    if(typeof valor !== "string") return console.error(`${propiedad} "${valor}" ingresado, NO es una cadena de texto`);
+
+    return true
+  } 
+
+  validarLongitudCadena(propiedad, valor, longitud) {
+    if(valor.length > longitud) return console.error(`${propiedad} "${valor}" 
+    excede el número de caracteres permitidos (${longitud}).`);
+
+    return true;
+  }
+
+  validarNumero(propiedad, valor) {
+    if(!valor) return console.warn(`${propiedad} "${valor}" esta vacío`);
+  }
+
+  validarArreglo(propiedad, valor) {
+    if(!valor) return console.warn(`${propiedad} "${valor}" esta vacío`);
+    if(!(valor instanceof Array)) return console.error(`{propiedad} "${valor}" ingresado, NO es un arreglo`);
+    if(valor.length === 0) return console.error(`${propiedad} "${valor}" no tiene datos`);
+
+    for(let cadena of valor) {
+      if(typeof cadena !== "string") return console.error(`El valor "${cadena}" ingresado, NO es una cadena de texto`);
+    }
+
+    return true;
+  }
+
+  validarIMBD(id) {
+    if(this.validarCadena("IMDB id", id)) {
+      if(/^([a-z]){2}([0-9]){2}$/.test(id)) {
+        return console.error(`IMDB id "${id}" no es válido, debe tener 9 caracteres, 
+        los 2 primeros letras minúsculas, los 7 restantes números`);
+      }
+    }  
+  }
+
+  validarTitulo(titulo) {
+    if(this.validarCadena("Título", titulo)) {
+      this.validarLongitudCadena("Título", titulo, 100);
+    }
+  } 
+  
+  validarDirector(director) {
+    if(this.validarCadena("Director", director))
+      this.validarLongitudCadena("Director", director, 50);   
+  }
+
+  validarEstreno(estreno) {
+    if(this.validarNumero("Año de Estreno", estreno))
+      if(!(/^([0-9]){4}$./.test(estreno)))
+        return console.error(`Año de Estreno "${estreno}" no es válido, debe ser un número de 4 digitos.`)
+  }
+
+  validarPais(countries) {
+    this.validarArreglo("País", countries);
+  }
+
+  validarGeneros(generos) {
+    if(this.validarArreglo("Géneros", generos)) {
+      for(let genero of generos) {
+        if(!Pelicula.listaGeneros.includes(genero)) {
+          console.error(`Genero(s) incorrectos "${generos.join(',')}"`);
+          Pelicula.generosAceptados();
+        }
+      }
+    }
+  }
+
+  validarCalificacion(calificacion) {
+    if(this.validarNumero("Calificación", calificacion))
+      return (calificacion < 0 || calificacion > 10)
+       ? console.error(`La calificación tiene que estar een un rango entre 0 y 10`)
+       : this.calificacion = calificacion.toFixed(1);
+  }
+  
+  fichaTecnica() {
+    console.info(`Ficha Técnica:+\nTitulo: "${this.titulo}"\nDirector: "${this.director}"\nAños: "${this.estreno}"\nPaís: "${this.countries.join(',')}"\nGéneros:${this.genero.join(',')}\nCalificaciónes: "${this.calificacion}"\nIMDB id: ${this.id}`);
+  }
+}
+
+const peli = new Pelicula({
+  id: "tt1234567",
+  titulo: "Título de la Peli",
+  director: "Director de la Pelí",
+  estreno: 2020,
+  countries: ['México', 'Francia'],
+  genero: ["Comedy", "Sport"],
+  calificacion: 1
+});
+
+peli.fichaTecnica();
