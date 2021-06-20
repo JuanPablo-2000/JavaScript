@@ -35,4 +35,3 @@ $linkDOM.dataset.description = "Suscribete a mu canal y comparte";
 console.log($linkDOM.dataset.description);
 console.log($linkDOM.hasAttribute("data-id"));
 console.log($linkDOM.removeAttribute("data-id"));
-console.log($linkDOM.dataset.description);
