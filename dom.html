@@ -39,6 +39,24 @@
       filter: sepia(1);
     }
 
+    .eventos-flujo div {
+      padding: 4rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .uno {
+      background-color: yellow;
+    }
+
+    .dos {
+      background-color: gold;
+    }
+
+    .tres {
+      background-color: lightyellow;
+    }
+
   </style>
 </head>
 <body>
@@ -80,7 +98,8 @@
     </ul>
   </nav>
   <input type="text" name="nombre" placeholder="Nombre">
-  <a class="link-dom" href="dom.html" style="background-color: #F7DF1E; color: #222;" data-id="1" data-description="Document Object Model">DOM</a>
+  <a class="link-dom" href="dom.html" style="background-color: #F7DF1E; 
+  color: #222;" data-id="1" data-description="Document Object Model">DOM</a>
   <section class="cards">
     <figure class="card">
       <img src="https://placeimg.com/200/200/tech" alt="Tech">
@@ -126,9 +145,23 @@
   <button id="evento-remover">
     Removiendo eventos con manejadores múltiples
   </button>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <br><br>
+  <h4>Flujo de Eventos</h4>
+  <section class="eventos-flujo">
+    <div class="uno">
+      1
+      <div class="dos">
+        2
+        <div class="tres">
+          3
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+  <br><br>
+  <br><br><br><br>
+  <br><br><br><br>
   <!--
   <script src="dom/1.introduccion-dom.js"></script>
   <script src="dom/2.dom-nodos-elementos-selectores.js"></script>
@@ -141,7 +174,9 @@
   <script src="dom/9.dom-templates.js"></script>
   <script src="dom/10.dom-(old Style).js"></script>
   <script src="dom/11.dom-(Cool Style).js"></script>
-  <script src="dom/12.dom-manejador-eventos.js"></script> -->
-  <script src="dom/13.dom-eventos-parametros-remover.js"></script>
+  <script src="dom/12.dom-manejador-eventos.js"></script>
+  <script src="dom/13.dom-eventos-parametros-remover.js"></script> -->
+  <script src="dom/14.dom-flujo-eventos.js"></script>
 </body>
 </html>
+
